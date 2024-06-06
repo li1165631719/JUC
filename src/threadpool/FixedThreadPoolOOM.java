@@ -8,12 +8,25 @@ import java.util.concurrent.Executors;
  * @author 李志豪
  * @create 2024/6/6
  */
-public class FixedThreadPool00M {
+public class FixedThreadPoolOOM {
     private static ExecutorService executorService = Executors.newFixedThreadPool(1);
 
     public static void main(String[] args) {
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            //executorService.execute(new SubThread());
+            executorService.execute(new SubThread());
         }
     }
 }
+
+    class SubThread implements Runnable {
+
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(1000000000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
