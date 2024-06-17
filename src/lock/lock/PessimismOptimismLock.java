@@ -13,5 +13,7 @@ public class PessimismOptimismLock {
         AtomicInteger atomicInteger =new AtomicInteger();
         atomicInteger.getAndIncrement();
     }
-    public synchronized 
+    public synchronized void testMethod() {
+        a++;
+    }
 }
