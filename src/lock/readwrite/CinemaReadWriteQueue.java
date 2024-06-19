@@ -43,6 +43,6 @@ public class CinemaReadWriteQueue {
             new Thread(()->read(),"Thread2").start();
             new Thread(()->read(),"Thread3").start();
             new Thread(()->write(),"Thread4").start();
-            new Thread(()->read(),"Thread5").start();
+            new Thread(()->read(),"Thread5").start();//此读锁也不会抢占前面得写锁，除非在某一读锁唤醒之前那一点点空隙时间实现读锁抢占，正好有线程以是正在执行得状态获取读锁
     }
 }
