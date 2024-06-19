@@ -49,7 +49,7 @@ public class Upgrading {
         System.out.println("演示降级是可以的");
         Thread thread1=new Thread(()->writeDowngrading(),"Thread1");
         thread1.start();
-        thread1.join();//先将当前线程挂起,待其他线程结束后在执行当前线程的代码
+        thread1.join();//确保线程1执行结束
         System.out.println("------------------");
         System.out.println("演示升级是不行的");
         Thread thread2 = new Thread(() -> readUpgrading(), "Thread2");
