@@ -23,7 +23,7 @@ public class SemaphoreDemo {
         @Override
         public void run() {
             try {
-                semaphore.acquire();
+                semaphore.acquire(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -34,7 +34,7 @@ public class SemaphoreDemo {
                 e.printStackTrace();
             }
             System.out.println(Thread.currentThread().getName()+"释放了许可证");
-            semaphore.release();
+            semaphore.release(2);
         }
     }
 }
